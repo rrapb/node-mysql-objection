@@ -1,16 +1,16 @@
 const router = require("express").Router();
-// const passport = require("passport");
-
+const passport = require("passport");
+// require('../middleware/passport')(passport);
 const ideaController = require("../controllers/ideas");
 
 router.get(
   "/ideas",
-//   passport.authenticate("jwt", { session: false }),
+  passport.authenticate("jwt", { session: false }),
   ideaController.getIdeas
 );
 router.get(
   "/ideas/:id",
-//   passport.authenticate("jwt", { session: false }),
+  passport.authenticate("jwt", { session: false }),
   ideaController.getIdea
 );
 router.post(
@@ -20,7 +20,7 @@ router.post(
 );
 router.delete(
   "/users/:id/ideas/:ideaId",
-//   passport.authenticate("jwt", { session: false }),
+  passport.authenticate("jwt", { session: false }),
   ideaController.deleteIdea
 );
 

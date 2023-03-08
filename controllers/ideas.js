@@ -3,7 +3,7 @@ const { User } = require('../models/user');
 
 const getIdeas = async(req, res) => {
     const ideas = await Idea.query();
-    res.json(ideas);
+    res.send(ideas);
 };
 
 const getIdea = async(req, res) => {

@@ -6,16 +6,12 @@ module.exports = {
         return new Promise((resolve, reject) => {
             jwt.sign(
                 payload,
-                `${process.env.secretOrKey}`,
-                {
-                    expiresIn: 86400,
-                },
+                'secret',
                 (err, token) => {
                     if (err) {
                         reject(err);
                         return;
                     }
-
                     resolve(token);
                 }
             );

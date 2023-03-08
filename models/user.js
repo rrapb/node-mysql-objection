@@ -13,7 +13,7 @@ class User extends Model {
 
     static get relationMappings () {
       return { 
-        idea: {
+        ideauser: {
           relation: Model.HasManyRelation,
           modelClass: __dirname + '/idea',
           join: {
@@ -41,4 +41,4 @@ class User extends Model {
       }
     }
   }
-  module.exports = { User };
+  module.exports = {User};
