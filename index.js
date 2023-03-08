@@ -10,7 +10,7 @@ require('dotenv').config()
 
 app.use(express.json());
 app.use(passport.initialize());
-require("./middleware/passport")(passport);
+// require("./middleware/passport")(passport);
 // app.use(passport.session());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

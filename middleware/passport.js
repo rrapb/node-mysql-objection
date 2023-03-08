@@ -5,7 +5,7 @@ const ExtractJwt = require("passport-jwt").ExtractJwt;
 const {User} = require("../models/user");
 
 // Define options for JWT strategy
-module.exports = (passport) => {
+// module.exports = (passport) => {
 const jwtOptions = {
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
     secretOrKey: 'secret',
@@ -29,5 +29,7 @@ const jwtStrategy = new JwtStrategy(jwtOptions, async (payload, done) => {
 // Use JWT strategy with Passport
 passport.use(jwtStrategy);
 
-// Export middleware for authenticating with JWT
-}
+const authenticate = passport.authenticate('jwt', { session: false });
+
+
+module.exports = authenticate;
