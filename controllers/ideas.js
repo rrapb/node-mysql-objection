@@ -11,6 +11,7 @@ const getIdea = async(req, res) => {
     .findById(req.params.id)
     .withGraphFetched('comments');
     res.send(idea);
+
 };
 
 const createIdea = async(req, res) => {

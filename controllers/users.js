@@ -2,7 +2,7 @@ const Joi = require('joi')
 const bcrypt = require('bcrypt');
 const {User} = require('../models/user')
 const passport = require("passport");
-require('../middleware/passport')
+// require('../middleware/passport')
 require('dotenv').config()
 const jwt = require('jsonwebtoken');
 
@@ -64,7 +64,12 @@ const getUsers = async (req, res) => {
 }
 
 const getUser = async (req, res) => {
-    const user = await User.query().findById(req.params.id).select('full_name', 'email').withGraphFetched('ideauser')
+    const user = await User.query().findById(req.params.id).select('full_name', 'email')
+        // .withGraphFetched('ideauser')
+        .withGraphFetched({
+            ideauser: true,
+            // comments: true
+        });
     res.send(user)
 }
 

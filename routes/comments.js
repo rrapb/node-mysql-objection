@@ -5,12 +5,12 @@ const authenticate = require('../middleware/passport')
 const commentController = require("../controllers/comments");
 
 router.post(
-  "/users/:id/ideas/:id/comments",
+  "/users/:id/ideas/:ideaId/comments",
   authenticate,
   commentController.createComment
 );
 router.delete(
-  "/users/:id/ideas/:id/comments/:commentId",
+  "/users/:id/ideas/:ideaId/comments/:commentId",
   authenticate,
   commentController.deleteComment
 );
