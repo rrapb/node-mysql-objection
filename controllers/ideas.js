@@ -2,6 +2,10 @@ const { Idea } = require('../models/idea');
 const { User } = require('../models/user');
 
 const getIdeas = async(req, res) => {
+    // console.log(req.headers.authorization,'token')
+    // const authToken = req.headers.authorization;
+    // const token = authToken.split(' ')[1];
+    // console.log(token);
     const ideas = await Idea.query();
     res.send(ideas);
 };
